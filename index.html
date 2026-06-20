@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23007BFF'/%3E%3Ctext x='50' y='57' font-size='48' text-anchor='middle' fill='white'%3E&#x1F319;%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <title>eZakat - Zakat Calculator</title>
+</head>
+<body class="theme-default">
+
+<header class="site-header">
+    <h1 class="app-title">eZakat</h1>
+    <nav class="main-nav" aria-label="Main navigation">
+    <button class="nav-btn active" data-page="home">
+        <i class="fi fi-rr-home"></i> Laman Utama
+    </button>
+    <button class="nav-btn" data-page="calculators">
+        <i class="fi fi-rr-calculator"></i> Kalkulator
+    </button>
+    <button class="nav-btn" data-page="about">
+        <i class="fi fi-rr-info"></i> Tentang Kami
+    </button>
+</nav>
+
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="themeSwitch">
+            <span class="slider"></span>
+        </label>
+        <span id="themeLabel">Normal vision</span>
+    </div>
+</header>
+
+<main id="content">
+    <div class="hero-banner">
+    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1200&q=80" alt="Hands holding a plant, representing charity and growth">
+    <div class="hero-text">
+        <h2>Sucikan Harta, Tenangkan Jiwa</h2>
+        <h5>Kira dan pelajari kewajipan zakat anda dengan telus dan mudah.</h2>
+    </div>
+</div>
+    <section id="home" class="page active">
+        <h2>What is Zakat?</h2>
+        <p>Zakat is one of the Five Pillars of Islam – a compulsory almsgiving that purifies wealth and supports the needy. It is calculated as 2.5% of eligible assets after meeting the nisab (minimum threshold).</p>
+
+        <h3>Why use eZakat?</h3>
+        <ul>
+            <li>Clear, step-by-step calculators for the most common asset classes.</li>
+            <li>Accessible design that respects Shneiderman’s design principles.</li>
+            <li>Customizable colour theme for colour-blind users.</li>
+        </ul>
+    </section>
+
+    <section id="calculators" class="page">
+        <h2>Kalkulator Zakat</h2>
+
+        <div class="calc-card">
+            <h3><i class="fi fi-rr-shop"></i> Zakat Perniagaan (Trade - زكاة التجارة)</h3>
+            <form class="calc-form" data-calc="trade">
+                <label>
+                    Nilai Aset Semasa / Barang Dagangan (RM):
+                    <input type="number" name="aset" min="0" step="0.01" required>
+                </label>
+                <label>
+                    Liabiliti / Hutang Jangka Pendek (RM):
+                    <input type="number" name="liabiliti" min="0" step="0.01" required>
+                </label>
+                <label style="grid-column: span 2;">
+                    Nisab Semasa (RM) - Contoh: RM 24,000:
+                    <input type="number" name="nisab" min="0" step="0.01" value="24000" required>
+                </label>
+                
+                <div class="checkbox-group" style="grid-column: span 2; display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" id="haul-trade" required style="width: 18px; height: 18px; accent-color: var(--primary);">
+                    <label for="haul-trade" style="cursor: pointer; font-weight: normal;">Perniagaan ini telah beroperasi genap setahun (Cukup Haul).</label>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn-submit">Hitung Zakat</button>
+                    <button type="reset" class="btn-clear">Padam</button>
+                </div>
+                <output class="result"></output>
+            </form>
+        </div>
+
+        <div class="calc-card">
+            <h3><i class="fi fi-rr-sack-dollar"></i> Zakat Pendapatan (Income - زكاة المال)</h3>
+            <form class="calc-form" data-calc="income">
+                <label>
+                    Jumlah Pendapatan Kasar Setahun (RM):
+                    <input type="number" name="pendapatan" min="0" step="0.01" required>
+                </label>
+                <label>
+                    Perbelanjaan Asas Dibenarkan Setahun (RM):
+                    <input type="number" name="belanja" min="0" step="0.01" required>
+                </label>
+                <label style="grid-column: span 2;">
+                    Nisab Semasa (RM) - Contoh: RM 24,000:
+                    <input type="number" name="nisab" min="0" step="0.01" value="24000" required>
+                </label>
+
+                <div class="checkbox-group" style="grid-column: span 2; display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" id="haul-income" required style="width: 18px; height: 18px; accent-color: var(--primary);">
+                    <label for="haul-income" style="cursor: pointer; font-weight: normal;">Harta ini telah dimiliki selama genap setahun (Cukup Haul).</label>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn-submit">Hitung Zakat</button>
+                    <button type="reset" class="btn-clear">Padam</button>
+                </div>
+                <output class="result"></output>
+            </form>
+        </div>
+
+        <div class="calc-card">
+            <h3><i class="fi fi-rr-coins"></i> Zakat Emas Simpanan (Gold - زكاة الذهب)</h3>
+            <form class="calc-form" data-calc="gold">
+                <label>
+                    Berat Emas Disimpan (gram):
+                    <input type="number" name="berat" min="0" step="0.01" required>
+                </label>
+                <label>
+                    Harga Emas Semasa (RM/gram):
+                    <input type="number" name="harga" min="0" step="0.01" required>
+                </label>
+
+                <div class="checkbox-group" style="grid-column: span 2; display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" id="haul-gold" required style="width: 18px; height: 18px; accent-color: var(--primary);">
+                    <label for="haul-gold" style="cursor: pointer; font-weight: normal;">Emas ini telah disimpan genap setahun (Cukup Haul).</label>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn-submit">Hitung Zakat</button>
+                    <button type="reset" class="btn-clear">Padam</button>
+                </div>
+                <output class="result"></output>
+            </form>
+        </div>
+
+        <div class="calc-card">
+            <h3><i class="fi fi-rr-bank"></i> Zakat Wang Simpanan (Savings - زكاة المدخرات)</h3>
+            <form class="calc-form" data-calc="savings">
+                <label>
+                    Baki Terendah Setahun (RM):
+                    <input type="number" name="baki" min="0" step="0.01" required>
+                </label>
+                <label>
+                    Nisab Semasa (RM) - Contoh: RM 24,000:
+                    <input type="number" name="nisab" min="0" step="0.01" value="24000" required>
+                </label>
+
+                <div class="checkbox-group" style="grid-column: span 2; display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" id="haul-savings" required style="width: 18px; height: 18px; accent-color: var(--primary);">
+                    <label for="haul-savings" style="cursor: pointer; font-weight: normal;">Duit simpanan ini tidak pernah dikeluarkan sehingga habis (Cukup Haul).</label>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn-submit">Hitung Zakat</button>
+                    <button type="reset" class="btn-clear">Padam</button>
+                </div>
+                <output class="result"></output>
+            </form>
+        </div>
+    </section>
+
+    <section id="about" class="page">
+        <h2>About the eZakat Team</h2>
+        <div class="team-grid">
+            <article class="team-member">
+                <img src="https://via.placeholder.com/150">
+                <h3>AHMAD IFFAT BIN ISKANDAR DZALMAN</h3>
+            </article>
+            <article class="team-member">
+                <img src="https://via.placeholder.com/150">
+                <h3>NORSHUAIZAM BIN ABDUL SHUKOR</h3>
+            </article>
+            <article class="team-member">
+                <img src="https://via.placeholder.com/150">
+                <h3>MUHAMMAD AKMAL SYAKIRIN BIN MOHD FAISAL</h3>
+            </article>
+            <article class="team-member">
+                <img src="https://via.placeholder.com/150">
+                <h3>MUHAMMAD AFIQ BIN AZMAN</h3>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 eZakat. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

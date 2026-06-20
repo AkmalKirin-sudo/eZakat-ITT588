@@ -1,0 +1,229 @@
+/* -------------------------------------------------
+   Base layout – mobile-first, then desktop
+   ------------------------------------------------- */
+:root {
+    /* Normal-vision palette */
+    --bg: #f8f9fa;
+    --fg: #212529;
+    --primary: #0069d9;
+    --accent: #28a745;
+    --danger: #dc3545;
+    --header-bg: #ffffff;
+    --card-bg: #ffffff;
+    --card-border: #ced4da;
+    --result-bg: #d4edda;
+    --result-text: #155724;
+}
+
+/* Colour-blind safe palette (Deuteranomaly) */
+.theme-cb {
+    --bg: #fafafa;
+    --fg: #2c2c2c;
+    --primary: #0060a8;   /* strong blue */
+    --accent: #ffb300;    /* golden-yellow – safe */
+    --danger: #d81b60;    /* distinct magenta/red */
+    --header-bg: #e9ecef;
+    --card-bg: #ffffff;
+    --card-border: #adb5bd;
+    --result-bg: #e3f2fd; /* light blue background instead of green */
+    --result-text: #0d47a1;
+}
+
+html { font-size: 16px; }
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.5;
+}
+
+/* -------------------------------------------------
+   Header & navigation
+   ------------------------------------------------- */
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--header-bg);
+    padding: 0.75rem 2rem; /* Lebarkan sedikit padding kiri/kanan */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Tambah shadow supaya nampak 'timbul' */
+    
+    /* STICKY HEADER CODE */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Pastikan ia sentiasa di atas elemen lain */
+}
+
+.app-title { 
+    margin: 0; 
+    font-size: 1.8rem; 
+    font-weight: 800;
+    color: var(--primary); 
+}
+
+.main-nav { 
+    display: flex; 
+    gap: 1.5rem; /* Jarakkan menu */
+}
+
+.nav-btn {
+    background: transparent; 
+    border: none;
+    color: var(--fg); /* Warna teks asal */
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Jarak antara icon dan teks */
+    transition: color 0.3s ease;
+}
+
+/* ANIMASI GARISAN DI BAWAH (HOVER & ACTIVE) */
+.nav-btn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-btn:hover {
+    color: var(--primary);
+}
+
+.nav-btn:hover::after {
+    width: 100%; /* Garisan memanjang bila hover */
+}
+
+.nav-btn.active {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.nav-btn.active::after {
+    width: 100%; /* Garisan kekal penuh untuk halaman yang aktif */
+}
+
+/* Theme toggle */
+.theme-toggle { display: flex; align-items: center; gap: .4rem; }
+.switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #ccc; transition: .4s; border-radius: 24px; }
+.slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background: var(--accent); }
+input:checked + .slider:before { transform: translateX(20px); }
+
+/* -------------------------------------------------
+   Main content & pages
+   ------------------------------------------------- */
+main { max-width: 960px; margin: 1.5rem auto; padding: 0 1rem; }
+.page { display: none; }
+.page.active { display: block; }
+h2, h3 { margin-top: 1.2rem; color: var(--primary); }
+p, li { max-width: 70ch; }
+
+/* -------------------------------------------------
+   Calculator cards & Forms
+   ------------------------------------------------- */
+.calc-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: .5rem; padding: 1.5rem; margin: 1.5rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.calc-form { display: grid; gap: 1rem; }
+.calc-form label { display: flex; flex-direction: column; font-weight: 500; }
+.calc-form input {
+    padding: .6rem; margin-top: 0.4rem;
+    border: 1px solid var(--card-border); border-radius: .25rem; font-size: 1rem;
+}
+
+/* Buttons */
+.button-group { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+.btn-submit, .btn-clear {
+    padding: .6rem 1.2rem; border: none; border-radius: .25rem;
+    cursor: pointer; font-size: 1rem; font-weight: bold; transition: 0.2s;
+}
+.btn-submit { background: var(--accent); color: #fff; flex: 2; }
+.btn-submit:hover { filter: brightness(0.9); }
+.btn-clear { background: #6c757d; color: #fff; flex: 1; }
+.btn-clear:hover { background: #5a6268; }
+
+/* Informative Feedback (Rule 3) */
+.result {
+    display: none; /* Hidden by default */
+    margin-top: 1rem; padding: 1rem;
+    border-radius: .3rem; font-weight: bold; text-align: center;
+    background: var(--result-bg); color: var(--result-text);
+    border: 1px solid var(--primary);
+}
+.result.show { display: block; animation: fadeIn 0.3s ease-in-out; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------------------------
+   About page grid
+   ------------------------------------------------- */
+.team-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.team-member { text-align: center; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: .5rem; padding: 1rem; }
+.team-member img { width: 100%; max-width: 120px; border-radius: 50%; margin-bottom: .5rem; object-fit: cover; }
+.site-footer { text-align: center; padding: 1rem; font-size: .9rem; background: var(--header-bg); margin-top: 2rem; border-top: 1px solid var(--card-border); }
+
+@media (min-width: 600px) {
+    .calc-form { grid-template-columns: 1fr 1fr; }
+    .button-group, .result { grid-column: span 2; }
+}
+
+/* Hero Banner Styling */
+.hero-banner {
+    position: relative;
+    text-align: center;
+    color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.hero-banner img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    filter: brightness(0.5); /* Gelapkan sedikit gambar supaya teks putih mudah dibaca */
+    display: block;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+
+.hero-text h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.calc-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
