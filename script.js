@@ -42,35 +42,35 @@ function formatRM(num) {
 
 // Fungsi utama penjana resit
 function generateReceipt(resultBox, isWajib, netValue, zakatValue, nisabValue) {
+    // Reset background and color overrides to let CSS take control
+    resultBox.style.background = "";
+    resultBox.style.color = "";
+
     if (isWajib) {
         resultBox.innerHTML = `
-            <div style="border-bottom: 2px solid var(--primary); padding-bottom: 8px; margin-bottom: 12px;">
-                <strong style="color: var(--primary); font-size: 1.2em;"><i class="fi fi-rr-check-circle"></i> Wajib Zakat</strong>
+            <div class="receipt-header">
+                <i class="fi fi-rr-check-circle"></i> Wajib Zakat (Zakat al-Mal)
             </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <div class="receipt-row">
                 <span>Nilai Bersih Harta:</span> <strong>${formatRM(netValue)}</strong>
             </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <span>Melepasi Nisab:</span> <strong>${formatRM(nisabValue)}</strong>
+            <div class="receipt-row">
+                <span>Had Nisab Minimum:</span> <strong>${formatRM(nisabValue)}</strong>
             </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.9em; color: #555;">
-                <span>Kadar Zakat:</span> <span>2.5%</span>
+            <div class="receipt-row">
+                <span>Kadar Zakat:</span> <strong>2.5%</strong>
             </div>
-            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.3em; color: var(--danger); background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px;">
-                <span>Jumlah Zakat:</span> <span>${formatRM(zakatValue)}</span>
+            <div class="receipt-row total">
+                <span>Jumlah Zakat Wajib Dibayar:</span> <strong>${formatRM(zakatValue)}</strong>
             </div>
         `;
-        resultBox.style.background = "var(--result-bg)";
-        resultBox.style.color = "var(--fg)";
     } else {
         resultBox.innerHTML = `
-            <div style="text-align: center; color: var(--danger); padding: 10px;">
-                <strong style="font-size: 1.2em;"><i class="fi fi-rr-cross-circle"></i> Tidak Wajib Zakat</strong><br>
-                <span style="font-size: 0.9em; color: var(--fg); display: block; margin-top: 8px;">Nilai harta bersih anda (${formatRM(netValue)}) masih belum melepasi paras minimum Nisab (${formatRM(nisabValue)}).</span>
+            <div class="receipt-error-body">
+                <strong><i class="fi fi-rr-cross-circle"></i> Tidak Wajib Zakat</strong>
+                <p>Nilai bersih harta anda (<strong>${formatRM(netValue)}</strong>) tidak melepasi had Nisab minimum semasa (<strong>${formatRM(nisabValue)}</strong>) atau syarat haul belum dipenuhi.</p>
             </div>
         `;
-        resultBox.style.background = "#fff3cd"; // Kuning amaran
-        resultBox.style.color = "#856404";
     }
     resultBox.classList.add('show');
 }
