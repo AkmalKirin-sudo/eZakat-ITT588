@@ -51,7 +51,32 @@ const i18n = {
         hero_alt: "Tangan memegang anak pokok, melambangkan sedekah dan pertumbuhan",
         theme_cb_safe: "Mesra rabun warna",
         theme_normal: "Penglihatan normal",
-        
+        info_trade_title: "Zakat Perniagaan",
+        info_trade_desc: "Zakat perniagaan ialah zakat yang wajib dikeluarkan hasil daripada harta perniagaan sama ada berasaskan pembuatan, perlombongan, perikanan, perkapalan, pembekalan, pertanian, perkhidmatan atau sebagainya dengan tujuan diperniagakan. Sama ada dalam bentuk perniagaan persendirian, perkongsian, syarikat, atau koperasi.",
+        info_income_title: "Zakat Pendapatan",
+        info_income_desc: "Zakat yang dikenakan ke atas semua jenis sumber pendapatan, upah, imbuhan, dan gaji yang diperolehi secara halal daripada majikan atau hasil kerja sendiri.",
+        info_gold_title: "Zakat Emas",
+        info_gold_desc: "Zakat ke atas emas yang disimpan sebagai pelaburan atau emas perhiasan yang tidak dipakai (melebihi uruf) apabila cukup syarat nisab dan haul.",
+        info_savings_title: "Zakat Wang Simpanan",
+        info_savings_desc: "Zakat simpanan ialah zakat yang wajib dikeluarkan ke atas wang yang disimpan dalam bentuk simpanan biasa, tetap, semasa, saham, amanah serta lain-lain simpanan.",
+        asnaf_header: "8 Golongan Asnaf",
+        asnaf_fakir_title: "Fakir",
+        asnaf_fakir_desc: "Individu yang langsung tidak mempunyai harta atau pendapatan, atau memilikinya tetapi tidak sampai 50% daripada keperluan asas diri dan tanggungannya.",
+        asnaf_miskin_title: "Miskin",
+        asnaf_miskin_desc: "Individu yang mempunyai harta atau pendapatan tetapi masih tidak mencukupi had keperluan asasi (hanya mampu menampung lebih 50% keperluan).",
+        asnaf_amil_title: "Amil",
+        asnaf_amil_desc: "Individu atau badan yang dilantik secara rasmi oleh pihak berkuasa agama untuk mengurus, mentadbir, dan mengagihkan kutipan zakat.",
+        asnaf_muallaf_title: "Muallaf",
+        asnaf_muallaf_desc: "Individu yang baru memeluk agama Islam atau mereka yang perlu dijinakkan hatinya untuk memperkukuh keyakinan terhadap Islam.",
+        asnaf_riqab_title: "Riqab",
+        asnaf_riqab_desc: "Golongan hamba yang ingin menebus diri mereka, atau orang Islam yang terbelenggu daripada cengkaman kejahilan, penaklukan, dan penindasan.",
+        asnaf_gharimin_title: "Gharimin",
+        asnaf_gharimin_desc: "Individu Islam yang berhutang untuk memenuhi keperluan asas bagi kemaslahatan diri, keluarga, atau masyarakat, dan tiada upaya untuk membayarnya.",
+        asnaf_fisabilillah_title: "Fisabilillah",
+        asnaf_fisabilillah_desc: "Mana-mana individu atau kumpulan yang berjuang, berusaha, dan melibatkan diri dalam aktiviti mempertahankan serta meninggikan syiar Islam.",
+        asnaf_ibnusabil_title: "Ibnu Sabil",
+        asnaf_ibnusabil_desc: "Musafir yang terputus perbelanjaan atau kehabisan bekalan wang ketika dalam perjalanan yang diharuskan oleh syarak.",
+
         // Receipts
         receipt_wajib_title: "Wajib Zakat (Zakat al-Mal)",
         receipt_tidak_wajib_title: "Tidak Wajib Zakat",
@@ -110,7 +135,32 @@ const i18n = {
         hero_alt: "Hands holding a plant, representing charity and growth",
         theme_cb_safe: "Colour-blind safe",
         theme_normal: "Normal vision",
-        
+        info_trade_title: "Business Zakat",
+        info_trade_desc: "Business zakat is an obligatory zakat issued from business assets, whether based on manufacturing, mining, fishery, shipping, supply, agriculture, services, or otherwise with the intention of trading. This applies to sole proprietorships, partnerships, companies, or cooperatives.",
+        info_income_title: "Income Zakat",
+        info_income_desc: "Zakat imposed on all types of income sources, wages, remunerations, and salaries obtained legally from an employer or self-employment.",
+        info_gold_title: "Gold Zakat",
+        info_gold_desc: "Zakat on gold kept as an investment or gold jewelry that is not worn (exceeding customary limits) when it meets the conditions of nisab and haul.",
+        info_savings_title: "Other Income Sources",
+        info_savings_desc: "Income zakat is an obligatory zakat imposed on salaries, bonuses, rent, and other lawful sources of income.",
+        asnaf_header: "8 Categories of Asnaf",
+        asnaf_fakir_title: "Fakir",
+        asnaf_fakir_desc: "Individuals who have no wealth or income, or have them but not enough to cover 50% of basic needs for themselves and their dependents.",
+        asnaf_miskin_title: "Miskin",
+        asnaf_miskin_desc: "Individuals who have wealth or income but still insufficient to meet basic needs (only able to cover more than 50% of needs).",
+        asnaf_amil_title: "Amil",
+        asnaf_amil_desc: "Individuals or bodies officially appointed by religious authorities to manage, administer, and distribute zakat collections.",
+        asnaf_muallaf_title: "Muallaf",
+        asnaf_muallaf_desc: "Individuals who have recently embraced Islam or those whose hearts need to be softened to strengthen their faith in Islam.",
+        asnaf_riqab_title: "Riqab",
+        asnaf_riqab_desc: "Slaves seeking to free themselves, or Muslims burdened by ignorance, subjugation, and oppression.",
+        asnaf_gharimin_title: "Gharimin",
+        asnaf_gharimin_desc: "Muslims who are in debt to meet basic needs for themselves, their family, or society, and are unable to pay it off.",
+        asnaf_fisabilillah_title: "Fisabilillah",
+        asnaf_fisabilillah_desc: "Any individual or group striving, struggling, and engaging in activities to defend and uphold the eminence of Islam.",
+        asnaf_ibnusabil_title: "Ibnu Sabil",
+        asnaf_ibnusabil_desc: "Travelers who are stranded or have run out of funds during a journey permitted by Sharia.",
+
         // Receipts
         receipt_wajib_title: "Zakat Obligatory (Zakat al-Mal)",
         receipt_tidak_wajib_title: "Not Zakat Obligatory",
@@ -121,6 +171,11 @@ const i18n = {
         receipt_tidak_wajib_desc: "Your net assets value (<strong>{net}</strong>) does not exceed the current minimum Nisab threshold (<strong>{nisab}</strong>) or the haul requirement has not been met."
     }
 };
+
+/* -------------------------------------------------
+   Global State
+   ------------------------------------------------- */
+let currentLanguage = localStorage.getItem('zakatLanguage') || 'ms';
 
 /* -------------------------------------------------
    Navigation handling (SPA logic)
@@ -168,18 +223,17 @@ themeSwitch.addEventListener('change', e => setTheme(e.target.checked));
    ------------------------------------------------- */
 const langToggle = document.getElementById('langToggle');
 const langLabel = document.getElementById('langLabel');
-let currentLanguage = localStorage.getItem('zakatLanguage') || 'ms';
 
 function setLanguage(lang) {
     currentLanguage = lang;
     localStorage.setItem('zakatLanguage', lang);
     document.documentElement.lang = lang;
-    
+
     // Update document title
     if (i18n[lang].site_title) {
         document.title = i18n[lang].site_title;
     }
-    
+
     // Update switch button labels
     if (lang === 'ms') {
         langLabel.textContent = 'English';
@@ -188,7 +242,7 @@ function setLanguage(lang) {
         langLabel.textContent = 'Bahasa Melayu';
         langToggle.setAttribute('aria-label', 'Switch to Malay');
     }
-    
+
     // Apply translation to all text nodes with data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -231,7 +285,7 @@ langToggle.addEventListener('click', () => {
    Zakat calculation logic & Form Handling
    ------------------------------------------------- */
 function formatRM(num) {
-    return `RM ${num.toLocaleString('en-MY', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+    return `RM ${num.toLocaleString('en-MY', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 // Render dynamic content of receipt based on language
@@ -297,11 +351,11 @@ function generateReceipt(resultBox, isWajib, netValue, zakatValue, nisabValue) {
 document.querySelectorAll('.calc-form').forEach(form => {
     form.addEventListener('submit', e => {
         e.preventDefault();
-        
+
         const formData = new FormData(form);
         const calcType = form.dataset.calc;
         const resultBox = form.querySelector('.result');
-        
+
         let net = 0;
         let zakat = 0;
         let isWajib = false;
@@ -311,30 +365,30 @@ document.querySelectorAll('.calc-form').forEach(form => {
             const aset = parseFloat(formData.get('aset')) || 0;
             const liabiliti = parseFloat(formData.get('liabiliti')) || 0;
             nisab = parseFloat(formData.get('nisab')) || 0;
-            
+
             net = aset - liabiliti;
             isWajib = net >= nisab;
-            
+
         } else if (calcType === 'income') {
             const pendapatan = parseFloat(formData.get('pendapatan')) || 0;
             const belanja = parseFloat(formData.get('belanja')) || 0;
             nisab = parseFloat(formData.get('nisab')) || 0;
-            
+
             net = pendapatan - belanja;
             isWajib = net >= nisab;
-            
+
         } else if (calcType === 'gold') {
             const berat = parseFloat(formData.get('berat')) || 0;
             const harga = parseFloat(formData.get('harga')) || 0;
-            
-            net = berat * harga; 
+
+            net = berat * harga;
             nisab = 85 * harga;
-            isWajib = berat >= 85; 
-            
+            isWajib = berat >= 85;
+
         } else if (calcType === 'savings') {
             const baki = parseFloat(formData.get('baki')) || 0;
             nisab = parseFloat(formData.get('nisab')) || 0;
-            
+
             net = baki;
             isWajib = net >= nisab;
         }
