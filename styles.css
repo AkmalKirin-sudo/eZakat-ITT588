@@ -138,7 +138,46 @@ body {
     width: 100%;
 }
 
-/* Theme toggle */
+/* Header Controls & Theme Toggle */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.lang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.04);
+    color: var(--fg-muted);
+    border: 1px solid var(--card-border);
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-spring);
+}
+
+.lang-btn:hover {
+    background: rgba(0, 0, 0, 0.08);
+    color: var(--fg);
+    border-color: rgba(0, 0, 0, 0.15);
+    transform: translateY(-0.5px);
+}
+
+.lang-btn:active {
+    transform: scale(0.97);
+}
+
+.lang-btn i {
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+}
+
 .theme-toggle { 
     display: flex; 
     align-items: center; 
@@ -470,25 +509,22 @@ p, li {
 }
 
 .member-avatar {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
     border-radius: 50%;
     margin: 0 auto 1.2rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: #FFFFFF;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
+    object-fit: cover;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
     border: 3px solid #FFFFFF;
+    background-color: #E2E8F0; /* Fallback loading background */
+    transition: transform 0.4s var(--ease-spring), border-color 0.4s var(--ease-spring);
+    display: block;
 }
 
-.avatar-1 { background: linear-gradient(135deg, #0F766E, #2DD4BF); }
-.avatar-2 { background: linear-gradient(135deg, #B91C1C, #F87171); }
-.avatar-3 { background: linear-gradient(135deg, #D97706, #FBBF24); }
-.avatar-4 { background: linear-gradient(135deg, #4338CA, #818CF8); }
+.team-member:hover .member-avatar {
+    transform: scale(1.1);
+    border-color: var(--primary);
+}
 
 .team-member h3 {
     font-size: 0.95rem;
